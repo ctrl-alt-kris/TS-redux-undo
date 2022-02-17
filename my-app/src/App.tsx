@@ -1,24 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { actionCreators, State } from './store';
+
 
 function App() {
+
+  const dispatch = useDispatch();
+
+  const {addValue, subtractValue } = bindActionCreators(actionCreators, dispatch);
+  const amount = useSelector((state: State) => state.value)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>{amount}</h1>
+      <button onClick={() => addValue(1)}>Add</button>
+      <button onClick={() => subtractValue(1)}>Subtract</button>
     </div>
   );
 }
