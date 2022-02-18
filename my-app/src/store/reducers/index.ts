@@ -1,8 +1,11 @@
 import { combineReducers } from "redux";
 import reducer from "./reducer";
+import undoable from "redux-undo";
 
 const reducers = combineReducers({
-    value: reducer
+    value: undoable(reducer, {
+        limit: 10
+    })
 });
 
 export default reducers
