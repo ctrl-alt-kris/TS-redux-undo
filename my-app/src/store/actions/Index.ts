@@ -10,4 +10,14 @@ interface SubtractAction {
   payload: number
 }
 
-export type Action = AddAction | SubtractAction
+interface AddAction2 {
+  type: ActionType.ADD2,
+  payload: number
+}
+
+interface SubtractAction2 {
+  type: ActionType.SUBSTRACT2,
+  payload: number
+}
+
+export type Action = AddAction | SubtractAction | AddAction2 | SubtractAction2 
