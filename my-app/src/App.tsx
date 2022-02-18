@@ -12,10 +12,9 @@ function App() {
 
   const {addValue, addValue2, subtractValue, subtractValue2 } = bindActionCreators(actionCreators, dispatch);
   const amount = useSelector((state: State) => state)
-  console.log(amount)
   return (
     <div className="App">
-      <h1>{amount.value.present}</h1>
+      <h1>{amount.undoGroup.present.value}</h1>
       <button onClick={() => addValue(1)}>Add</button>
       <button onClick={() => subtractValue(1)}>Subtract</button>
       <br/>
@@ -25,7 +24,7 @@ function App() {
       <br/>
       <br/>
 
-      <h1>{amount.value2.present}</h1>
+      <h1>{amount.undoGroup.present.value2}</h1>
       <button onClick={() => addValue2(1)}>Add</button>
       <button onClick={() => subtractValue2(1)}>Subtract</button>
       <br/>

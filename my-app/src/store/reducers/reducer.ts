@@ -17,6 +17,6 @@ const reducer = (state: number = initialState, action: Action): number => {
     }
   }
 
-  const undoableReducer = undoable(reducer)
   
-export default undoableReducer
+  
+export default reducer
